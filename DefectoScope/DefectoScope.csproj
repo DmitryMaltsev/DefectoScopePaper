@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4880D28-4D96-42A2-8636-42F034E6EE4C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DefectoScope</RootNamespace>
+    <AssemblyName>DefectoScope</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>embedded</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Properties\GearWheel.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="KUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Kogerent\KUtilities\Dotfuscated\KUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Logger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Kogerent\Logger\Dotfuscated\Logger.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TitaniumAS.Opc.Client, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TitaniumAS.Opc.Client.1.0.2.0\lib\net40\TitaniumAS.Opc.Client.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\RecentItemsBuffer.cs" />
+    <Compile Include="Controls\AutoShiftSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AutoShiftSettingsControl.Designer.cs">
+      <DependentUpon>AutoShiftSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DynamicSensorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DynamicSensorControl.Designer.cs">
+      <DependentUpon>DynamicSensorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExcludedZoneSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ExcludedZoneSettingsControl.Designer.cs">
+      <DependentUpon>ExcludedZoneSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SensorSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SensorSettingsControl.Designer.cs">
+      <DependentUpon>SensorSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SystemSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SystemSettingsControl.Designer.cs">
+      <DependentUpon>SystemSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TestControl.Designer.cs">
+      <DependentUpon>TestControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TypeDefectSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TypeDefectSettingsControl.Designer.cs">
+      <DependentUpon>TypeDefectSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ComboBoxExtensions.cs" />
+    <Compile Include="Extensions\TimerExtensions.cs" />
+    <Compile Include="Forms\AutoShiftSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AutoShiftSettingsForm.Designer.cs">
+      <DependentUpon>AutoShiftSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateConfigForm.Designer.cs">
+      <DependentUpon>CreateConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateReportForm.Designer.cs">
+      <DependentUpon>CreateReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TambourChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TambourChangeForm.Designer.cs">
+      <DependentUpon>TambourChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TestAutoFillSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TestAutoFillSettingsForm.Designer.cs">
+      <DependentUpon>TestAutoFillSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AutoShiftSettings.cs" />
+    <Compile Include="Shift.cs" />
+    <Compile Include="SqlClient\AsyncSqlWriter.cs" />
+    <Compile Include="SqlClient\SqlClient.cs" />
+    <Compile Include="SqlClient\SqlReader.cs" />
+    <Compile Include="SqlClient\SqlWriter.cs" />
+    <Compile Include="SqlClient\SqlListener.cs" />
+    <Compile Include="SqlClient\SqlMessage.cs" />
+    <Compile Include="SqlClient\SqlQueueDispatcher.cs" />
+    <Compile Include="SqlClient\UtilsSql.cs" />
+    <Compile Include="Unused\Opc\BasicUsageTests.cs" />
+    <Compile Include="Unused\Opc\BrowseHelpers.cs" />
+    <Compile Include="Unused\Opc\HResultTests.cs" />
+    <Compile Include="Unused\Opc\LoggerTests.cs" />
+    <Compile Include="Unused\Opc\OpcDaBrowser1Tests.cs" />
+    <Compile Include="Unused\Opc\OpcDaBrowser2Tests.cs" />
+    <Compile Include="Unused\Opc\OpcDaBrowser3Tests.cs" />
+    <Compile Include="OpcClient.cs" />
+    <Compile Include="Unused\Opc\OpcServerEnumeratorAutoTests.cs" />
+    <Compile Include="Unused\Opc\UriTests.cs" />
+    <Compile Include="Settings\ConfigSettings.cs" />
+    <Compile Include="Settings\Constants.cs" />
+    <Compile Include="Settings\ExcludedZoneSettings.cs" />
+    <Compile Include="Settings\ISettings.cs" />
+    <Compile Include="Settings\SensorSettings.cs" />
+    <Compile Include="Settings\SystemSettings.cs" />
+    <Compile Include="Settings\TypeDefectSettings.cs" />
+    <Compile Include="Settings\UtilsSettings.cs" />
+    <Compile Include="Unused\Logger.cs" />
+    <Compile Include="Unused\OffCollection\OffArray.cs" />
+    <Compile Include="Unused\OffCollection\OffArrayList.cs" />
+    <Compile Include="Unused\OffCollection\OffLinkedList.cs" />
+    <Compile Include="Unused\OffCollection\OffList.cs" />
+    <Compile Include="Unused\OffCollection\OffThrowHelper.cs" />
+    <Compile Include="Collections\PotentialDefects.cs" />
+    <Compile Include="Events\AddedDefectEventArgs.cs" />
+    <Compile Include="Events\AddedProfileEventArgs.cs" />
+    <Compile Include="Events\RemovedDefectEventArgs.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Forms\AboutProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutProgramForm.Designer.cs">
+      <DependentUpon>AboutProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\Delegates.cs" />
+    <Compile Include="Forms\LoadFrameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadFrameForm.Designer.cs">
+      <DependentUpon>LoadFrameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unused\ThreadSafe\EnumerableExtension.cs" />
+    <Compile Include="Unused\ThreadSafe\ThreadSafeEnumerable.cs" />
+    <Compile Include="Unused\ThreadSafe\SafeEnumerable.cs" />
+    <Compile Include="Unused\ThreadSafe\SafeList.cs" />
+    <Compile Include="Unused\ThreadSafe\SafeEnumerator.cs" />
+    <Compile Include="Forms\TimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TimeForm.Designer.cs">
+      <DependentUpon>TimeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Static\Calibration.cs" />
+    <Compile Include="Components\DefectZoom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DefectsMapCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DefectsMapCell.Designer.cs">
+      <DependentUpon>DefectsMapCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DefectsMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DefectsMap.Designer.cs">
+      <DependentUpon>DefectsMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Defects.cs" />
+    <Compile Include="Forms\CalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CalibrationForm.Designer.cs">
+      <DependentUpon>CalibrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProfileBufferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProfileBufferForm.Designer.cs">
+      <DependentUpon>ProfileBufferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ControllerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ControllerForm.Designer.cs">
+      <DependentUpon>ControllerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\RecentItemsList.cs" />
+    <Compile Include="Components\SyncController.cs" />
+    <Compile Include="Defect.cs" />
+    <Compile Include="Forms\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManualModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManualModeForm.Designer.cs">
+      <DependentUpon>ManualModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\ScalePoint.cs" />
+    <Compile Include="Components\ProfileBufferMap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Collections\ProfileBuffer.cs" />
+    <Compile Include="Forms\LoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadForm.Designer.cs">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Static\G.cs" />
+    <Compile Include="Others\Others.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Others\OffColor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Static\Time.cs" />
+    <Compile Include="Static\UtilsD.cs" />
+    <Compile Include="Unused\Property.cs" />
+    <Compile Include="Sensor.cs" />
+    <Compile Include="SensorE.cs" />
+    <Compile Include="Forms\SystemSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SystemSettingsForm.Designer.cs">
+      <DependentUpon>SystemSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unused\SiemensS.cs" />
+    <Compile Include="Unused\SplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Controls\AutoShiftSettingsControl.resx">
+      <DependentUpon>AutoShiftSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DefectsMapCell.resx">
+      <DependentUpon>DefectsMapCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DefectsMap.resx">
+      <DependentUpon>DefectsMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DynamicSensorControl.resx">
+      <DependentUpon>DynamicSensorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ExcludedZoneSettingsControl.resx">
+      <DependentUpon>ExcludedZoneSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SensorSettingsControl.resx">
+      <DependentUpon>SensorSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SystemSettingsControl.resx">
+      <DependentUpon>SystemSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TypeDefectSettingsControl.resx">
+      <DependentUpon>TypeDefectSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutProgramForm.resx">
+      <DependentUpon>AboutProgramForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AutoShiftSettingsForm.resx">
+      <DependentUpon>AutoShiftSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CalibrationForm.resx">
+      <DependentUpon>CalibrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateConfigForm.resx">
+      <DependentUpon>CreateConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateReportForm.resx">
+      <DependentUpon>CreateReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadFrameForm.resx">
+      <DependentUpon>LoadFrameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProfileBufferForm.resx">
+      <DependentUpon>ProfileBufferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ControllerForm.resx">
+      <DependentUpon>ControllerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadForm.resx">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManualModeForm.resx">
+      <DependentUpon>ManualModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TambourChangeForm.resx">
+      <DependentUpon>TambourChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TestAutoFillSettingsForm.resx">
+      <DependentUpon>TestAutoFillSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TimeForm.resx">
+      <DependentUpon>TimeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\SystemSettingsForm.resx">
+      <DependentUpon>SystemSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\task-manager-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gear-2s-200px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\okDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\okHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\addDisable.png" />
+    <None Include="Resources\addHighlight.png" />
+    <None Include="Properties\GearWheel.ico" />
+    <Content Include="Properties\Changes.txt" />
+    <Content Include="Resources\logo.png" />
+    <None Include="Resources\unknown.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
